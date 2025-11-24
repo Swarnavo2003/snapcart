@@ -1,6 +1,7 @@
 import connectDB from "@/lib/db";
 import User, { IUser } from "@/models/user.model";
 import { ApiResponse } from "@/types/api-response";
+import { registerSchema } from "@/validations";
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,29 +9,37 @@ export async function POST(req: NextRequest) {
   try {
     await connectDB();
 
-    const { name, email, password } = await req.json();
+    const body = await req.json();
 
-    const existingUser = await User.findOne({ email });
+    const validation = registerSchema.safeParse(body);
 
-    if (existingUser) {
-      return NextResponse.json<ApiResponse<string>>(
+    if (!validation.success) {
+      const errors = validation.error.issues
+        .map((issue) => issue.message)
+        .join(", ");
+
+      return NextResponse.json<ApiResponse<null>>(
         {
           timestamp: new Date().toISOString(),
-          message: "User already exists",
+          message: "Validation error",
           data: null,
-          error: "User with this email already exists",
+          error: errors,
         },
         { status: 400 }
       );
     }
 
-    if (password.length < 6) {
-      return NextResponse.json<ApiResponse<string>>(
+    const { name, email, password } = validation.data;
+
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return NextResponse.json<ApiResponse<null>>(
         {
           timestamp: new Date().toISOString(),
-          message: "Password too short",
+          message: "User already exists",
           data: null,
-          error: "Password too short",
+          error: "User with this email already exists",
         },
         { status: 400 }
       );
