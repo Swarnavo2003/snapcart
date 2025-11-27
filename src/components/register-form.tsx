@@ -15,6 +15,7 @@ import Image from "next/image";
 import { useState } from "react";
 import google from "@/assets/google.png";
 import axios, { AxiosError } from "axios";
+import { useRouter } from "next/navigation";
 
 interface iAppProps {
   prevStep: (step: number) => void;
@@ -28,6 +29,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
   });
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -186,7 +188,10 @@ export function RegisterForm({ prevStep }: iAppProps) {
 
       <p className="text-gray-600 mt-6 text-sm flex items-center gap-1">
         Already have an account? <LogIn className="size-4" />{" "}
-        <span className="text-green-500 cursor-pointer hover:underline hover:text-green-600">
+        <span
+          onClick={() => router.push("/login")}
+          className="text-green-500 cursor-pointer hover:underline hover:text-green-600"
+        >
           Sign In
         </span>
       </p>
