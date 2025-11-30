@@ -7,12 +7,18 @@ import Google from "next-auth/providers/google";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
     Credentials({
       credentials: {
         email: { label: "email", type: "email" },
         password: { label: "password", type: "password" },
       },
-      async authorize(credentials, request) {
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) return null;
+
         await connectDB();
 
         const { email, password } = credentials as {
@@ -38,10 +44,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         };
       },
     }),
-    Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
   ],
   callbacks: {
     async signIn({ user, account }) {
@@ -58,6 +60,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         user.id = dbUser._id.toString();
         user.role = dbUser.role;
+        await dbUser.save();
       }
       return true;
     },
