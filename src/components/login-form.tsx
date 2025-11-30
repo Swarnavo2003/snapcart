@@ -13,7 +13,7 @@ import Image from "next/image";
 import { FormEvent, useState } from "react";
 import google from "@/assets/google.png";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 export function LoginForm() {
   const [inputData, setInputData] = useState({
@@ -40,6 +40,9 @@ export function LoginForm() {
       setLoading(false);
     }
   };
+
+  const session = useSession();
+  console.log(session);
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-6 py-10 bg-white relative">
       <motion.h1
@@ -134,7 +137,10 @@ export function LoginForm() {
           <span className="flex-1 h-px bg-gray-200"></span>
         </div>
 
-        <button className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-lg text-gray-700 font-medium transition-all duration-200">
+        <button
+          onClick={() => signIn("google")}
+          className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-lg text-gray-700 font-medium transition-all duration-200"
+        >
           <Image src={google} width={20} height={20} alt="google" />
           Continue with Google
         </button>

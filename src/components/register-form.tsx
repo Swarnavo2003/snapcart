@@ -16,6 +16,7 @@ import { useState } from "react";
 import google from "@/assets/google.png";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 interface iAppProps {
   prevStep: (step: number) => void;
@@ -180,7 +181,10 @@ export function RegisterForm({ prevStep }: iAppProps) {
           <span className="flex-1 h-px bg-gray-200"></span>
         </div>
 
-        <button className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-lg text-gray-700 font-medium transition-all duration-200">
+        <button
+          onClick={() => signIn("google")}
+          className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-lg text-gray-700 font-medium transition-all duration-200 hover:cursor-pointer"
+        >
           <Image src={google} width={20} height={20} alt="google" />
           Continue with Google
         </button>
