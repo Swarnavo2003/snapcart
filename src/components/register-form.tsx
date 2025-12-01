@@ -43,7 +43,9 @@ export function RegisterForm({ prevStep }: iAppProps) {
       setLoading(true);
 
       const result = await axios.post("/api/auth/register", inputData);
-      console.log(result.data);
+      if (result.status === 200) {
+        router.push("/login");
+      }
 
       setInputData({
         name: "",
@@ -182,7 +184,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
         </div>
 
         <button
-          onClick={() => signIn("google")}
+          onClick={() => signIn("google", { callbackUrl: "/" })}
           className="w-full flex items-center justify-center gap-3 border border-gray-300 hover:bg-gray-50 py-3 rounded-lg text-gray-700 font-medium transition-all duration-200 hover:cursor-pointer"
         >
           <Image src={google} width={20} height={20} alt="google" />
