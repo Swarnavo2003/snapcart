@@ -7,3 +7,10 @@ export const registerSchema = z.object({
 });
 
 export type RegisterInput = z.infer<typeof registerSchema>;
+
+export const editRoleMobileSchema = z.object({
+  role: z.string().optional(),
+  mobile: z.string().optional(),
+});
+
+export type EditRoleMobileInput = z.infer<typeof editRoleMobileSchema>;
