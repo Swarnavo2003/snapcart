@@ -1,18 +1,39 @@
 "use client";
+import axios, { AxiosError } from "axios";
 import { ArrowRight, Bike, User, UserCog } from "lucide-react";
 import { motion } from "motion/react";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
-const roleArray = [
+const roles = [
   { id: "user", label: "User", icon: User },
   { id: "admin", label: "Admin", icon: UserCog },
   { id: "deliveryBoy", label: "Delhivery Boy", icon: Bike },
 ];
 
 export function EditRoleMobile() {
-  const [roles, setRoles] = useState(roleArray);
   const [selectedRole, setSelectedRole] = useState("");
   const [mobile, setMobile] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleEdit = async () => {
+    try {
+      setLoading(true);
+
+      const result = await axios.post("/api/user/edit-role-mobile", {
+        mobile,
+        role: selectedRole,
+      });
+      if (result.status === 200) {
+        redirect("/");
+      }
+    } catch (error) {
+      const err = error as AxiosError as unknown;
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="flex flex-col items-center min-h-screen p-6 w-full">
       <motion.h1
@@ -75,13 +96,14 @@ export function EditRoleMobile() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
+        onClick={handleEdit}
         className={`inline-flex items-center justify-center gap-2 font-semibold py-3 px-8 rounded-lg shadow-md transition-all duration-200 w-[200px] mt-10 ${
           selectedRole && mobile.length === 10
             ? "bg-green-700 hover:bg-green-600 text-white cursor-pointer"
             : "bg-gray-300 text-gray-600 cursor-not-allowed"
         }`}
       >
-        Go to Home
+        {loading ? "Please Wait..." : "Submit"}
         <ArrowRight className="w-4 h-4" />
       </motion.button>
     </div>
