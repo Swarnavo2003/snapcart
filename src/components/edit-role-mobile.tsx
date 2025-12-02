@@ -1,8 +1,7 @@
 "use client";
 import axios, { AxiosError } from "axios";
-import { ArrowRight, Bike, User, UserCog } from "lucide-react";
+import { ArrowRight, Bike, Loader2, User, UserCog } from "lucide-react";
 import { motion } from "motion/react";
-import { redirect } from "next/navigation";
 import { useState } from "react";
 
 const roles = [
@@ -25,7 +24,7 @@ export function EditRoleMobile() {
         role: selectedRole,
       });
       if (result.status === 200) {
-        redirect("/");
+        window.location.reload();
       }
     } catch (error) {
       const err = error as AxiosError as unknown;
@@ -103,8 +102,17 @@ export function EditRoleMobile() {
             : "bg-gray-300 text-gray-600 cursor-not-allowed"
         }`}
       >
-        {loading ? "Please Wait..." : "Submit"}
-        <ArrowRight className="w-4 h-4" />
+        {loading ? (
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" />
+            <span>Loading</span>
+          </>
+        ) : (
+          <>
+            <span>Submit</span>
+            <ArrowRight className="w-4 h-4" />
+          </>
+        )}
       </motion.button>
     </div>
   );
