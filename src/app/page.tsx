@@ -1,6 +1,9 @@
 import { auth } from "@/auth";
+import { AdminDashboard } from "@/components/admin-dashboard";
+import { DeliveryBoyDashboard } from "@/components/deliveryboy-dashboard";
 import { EditRoleMobile } from "@/components/edit-role-mobile";
 import { Navbar } from "@/components/navbar";
+import { UserDashboard } from "@/components/user-dashboard";
 import connectDB from "@/lib/db";
 import User from "@/models/user.model";
 import { redirect } from "next/navigation";
@@ -26,6 +29,9 @@ export default async function Home() {
   return (
     <div>
       <Navbar user={plainUser} />
+      {user.role == "user" && <UserDashboard />}
+      {user.role == "admin" && <AdminDashboard />}
+      {user.role == "deliveryBoy" && <DeliveryBoyDashboard />}
     </div>
   );
 }
