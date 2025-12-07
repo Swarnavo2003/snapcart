@@ -64,13 +64,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return true;
     },
-    jwt: async ({ token, user }) => {
+    jwt: async ({ token, user, trigger, session }) => {
       if (user) {
         token.id = user.id;
         token.name = user.name;
         token.email = user.email;
         token.role = user.role;
       }
+
+      if (trigger == "update") {
+        token.token = session.role;
+      }
+
       return token;
     },
     session: async ({ session, token }) => {

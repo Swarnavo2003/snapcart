@@ -2,6 +2,7 @@
 import axios, { AxiosError } from "axios";
 import { ArrowRight, Bike, Loader2, User, UserCog } from "lucide-react";
 import { motion } from "motion/react";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 const roles = [
@@ -14,6 +15,7 @@ export function EditRoleMobile() {
   const [selectedRole, setSelectedRole] = useState("");
   const [mobile, setMobile] = useState("");
   const [loading, setLoading] = useState(false);
+  const { update } = useSession();
 
   const handleEdit = async () => {
     try {
@@ -24,6 +26,7 @@ export function EditRoleMobile() {
         role: selectedRole,
       });
       if (result.status === 200) {
+        await update({ role: selectedRole });
         window.location.reload();
       }
     } catch (error) {
