@@ -12,3 +12,5 @@ export const CATEGORIES: string[] = [
   "Instant & Packaged Food",
   "Baby & Pet Care",
 ];
+
+export const UNITS: string[] = ["kg", "g", "liter", "ml", "piece", "pack"];

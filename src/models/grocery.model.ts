@@ -1,4 +1,4 @@
-import { CATEGORIES } from "@/constants";
+import { CATEGORIES, UNITS } from "@/constants";
 import mongoose from "mongoose";
 
 export interface IGrocery {
@@ -21,7 +21,7 @@ const grocerySchema = new mongoose.Schema<IGrocery>(
       required: true,
     },
     price: { type: String, required: true },
-    unit: { type: String, required: true },
+    unit: { type: String, enum: UNITS, required: true },
     image: { type: String, required: true },
   },
   { timestamps: true }
