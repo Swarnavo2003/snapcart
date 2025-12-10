@@ -56,7 +56,7 @@ export function Navbar({ user }: { user: IUser }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed top-0 left-0 w-[75%] h-full z-9999 bg-linear-to-b from-green-800/90 via-green-700/80 to-green-900/90 backdrop-blur-xl border-r border-green-400/20 shadow-[0_0_50px_-10px_rgba(0,255,100,0.3)] flex flex-col p-6 text-white"
+            className="fixed top-0 left-0 w-[75%] h-full z-9999 bg-linear-to-b from-orange-800/90 via-orange-700/80 to-orange-900/90 backdrop-blur-xl border-r border-orange-400/20 shadow-[0_0_50px_-10px_rgba(0,255,100,0.3)] flex flex-col p-6 text-white"
           >
             <div className="flex justify-between items-center mb-2">
               <h1 className="font-extrabold text-2xl tracking-wide text-white/90">
@@ -70,7 +70,7 @@ export function Navbar({ user }: { user: IUser }) {
               </button>
             </div>
             <div className="mt-3 flex items-center gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/15 transition-all shadow-inner cursor-pointer">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-green-400/60 shadow-lg">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-orange-400/60 shadow-lg">
                 {user.image ? (
                   <Image
                     src={user.image}
@@ -86,7 +86,7 @@ export function Navbar({ user }: { user: IUser }) {
                 <h1 className="text-lg font-semibold text-white">
                   {user.name}
                 </h1>
-                <p className="text-xs text-green-200 capitalize tracking-wide">
+                <p className="text-xs text-orange-200 capitalize tracking-wide">
                   {user.role}
                 </p>
               </div>
@@ -134,7 +134,7 @@ export function Navbar({ user }: { user: IUser }) {
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="w-[95%] fixed top-4 left-1/2 -translate-x-1/2 bg-linear-to-r from-green-500 to-green-700 rounded-xl shadow-lg shadow-black/30 flex justify-between items-center h-20 px-4 md:px-8 z-50"
+      className="w-[95%] fixed top-4 left-1/2 -translate-x-1/2 bg-linear-to-r from-orange-500 to-orange-700 rounded-xl shadow-lg shadow-black/30 flex justify-between items-center h-20 px-4 md:px-8 z-50"
     >
       <Link
         href={"/"}
@@ -168,7 +168,7 @@ export function Navbar({ user }: { user: IUser }) {
               href={""}
               className="relative bg-white rounded-full w-11 h-11 flex items-center justify-center shadow-sm hover:scale-105 transition"
             >
-              <ShoppingCart className="text-green-600 w-6 h-6" />
+              <ShoppingCart className="text-orange-600 w-6 h-6" />
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-semibold shadow">
                 0
               </span>
@@ -181,23 +181,23 @@ export function Navbar({ user }: { user: IUser }) {
             <div className="hidden md:flex items-center gap-4">
               <Link
                 href={"/admin/add-grocery"}
-                className="flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-lg hover:bg-green-100 transition-all"
+                className="flex items-center gap-2 bg-white text-orange-700 font-semibold px-4 py-2 rounded-lg hover:bg-orange-100 transition-all"
               >
-                <PlusCircle className="text-green-700 w-5 h-5" />
+                <PlusCircle className="text-orange-700 w-5 h-5" />
                 Add Grocery
               </Link>
               <Link
                 href={""}
-                className="flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-lg hover:bg-green-100 transition-all"
+                className="flex items-center gap-2 bg-white text-orange-700 font-semibold px-4 py-2 rounded-lg hover:bg-orange-100 transition-all"
               >
-                <Boxes className="text-green-700 w-5 h-5" />
+                <Boxes className="text-orange-700 w-5 h-5" />
                 View Grocery
               </Link>
               <Link
                 href={""}
-                className="flex items-center gap-2 bg-white text-green-700 font-semibold px-4 py-2 rounded-lg hover:bg-green-100 transition-all"
+                className="flex items-center gap-2 bg-white text-orange-700 font-semibold px-4 py-2 rounded-lg hover:bg-orange-100 transition-all"
               >
-                <ClipboardCheck className="text-green-700 w-5 h-5" />
+                <ClipboardCheck className="text-orange-700 w-5 h-5" />
                 Manage Orders
               </Link>
             </div>
@@ -206,7 +206,7 @@ export function Navbar({ user }: { user: IUser }) {
               onClick={() => setMenuOpen((prev) => !prev)}
               className="md:hidden bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md"
             >
-              <Menu className="text-green-500 w-6 h-6" />
+              <Menu className="text-orange-500 w-6 h-6" />
             </div>
           </>
         )}
@@ -237,7 +237,7 @@ export function Navbar({ user }: { user: IUser }) {
                 className="absolute right-0 mt-3 w-50 bg-white rounded-xl shadow-xl border border-gray-200 p-3 z-10"
               >
                 <div className="flex items-center gap-3 py-2 border-b border-gray-200">
-                  <div className="relative w-12 h-9 rounded-full bg-green-100 flex items-center justify-center overflow-hidden">
+                  <div className="relative w-12 h-9 rounded-full bg-orange-100 flex items-center justify-center overflow-hidden">
                     {user.image ? (
                       <Image
                         src={user.image}
@@ -261,9 +261,9 @@ export function Navbar({ user }: { user: IUser }) {
                   <Link
                     href={""}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-2 px-3 py-3 hover:bg-green-50 rounded-lg text-gray-700 font-medium"
+                    className="flex items-center gap-2 px-3 py-3 hover:bg-orange-50 rounded-lg text-gray-700 font-medium"
                   >
-                    <Package className="w-5 h-5 text-green-600" />
+                    <Package className="w-5 h-5 text-orange-600" />
                     <span>My Orders</span>
                   </Link>
                 )}

@@ -8,7 +8,7 @@ const slides = [
   {
     id: 1,
     icon: (
-      <Leaf className="w-20 h-20 sm:w-28 sm:h-28 text-green-400 drop-shadow-lg" />
+      <Leaf className="w-20 h-20 sm:w-28 sm:h-28 text-orange-400 drop-shadow-lg" />
     ),
     title: "Fresh Organic Groceries 🥦",
     subtitle:
@@ -88,7 +88,7 @@ export function HeroSection() {
             whileHover={{ scale: 1.09 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.1 }}
-            className="mt-4 bg-white text-green-700 hover:bg-green-100 px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 flex items-center gap-2 cursor-pointer"
+            className="mt-4 bg-white text-orange-700 hover:bg-orange-100 px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 flex items-center gap-2 cursor-pointer"
           >
             <ShoppingBasket className="w-5 h-5" /> {slides[currrent].btnText}
           </motion.button>

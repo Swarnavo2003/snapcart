@@ -15,8 +15,8 @@ export function Welcome({ nextStep }: iAppProps) {
         transition={{ duration: 0.8 }}
         className="flex items-center gap-2"
       >
-        <ShoppingBasket className="w-12 h-12 text-green-600" />
-        <h1 className="text-4xl md:text-5xl font-extrabold text-green-600">
+        <ShoppingBasket className="w-12 h-12 text-orange-600" />
+        <h1 className="text-4xl md:text-5xl font-extrabold text-orange-600">
           Snapcart
         </h1>
       </motion.div>
@@ -37,7 +37,7 @@ export function Welcome({ nextStep }: iAppProps) {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="mt-5 flex items-center justify-center gap-5"
       >
-        <ShoppingBasket className="w-24 h-24 md:w-32 md:h-32 text-green-600 drop-shadow-md" />
+        <ShoppingBasket className="w-24 h-24 md:w-32 md:h-32 text-orange-600 drop-shadow-md" />
         <Bike className="w-24 h-24 md:w-32 md:h-32 text-orange-600 drop-shadow-md" />
       </motion.div>
 
@@ -49,7 +49,7 @@ export function Welcome({ nextStep }: iAppProps) {
       >
         <button
           onClick={() => nextStep(2)}
-          className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-200 cursor-pointer"
+          className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-200 cursor-pointer"
         >
           Next
           <ArrowRight />

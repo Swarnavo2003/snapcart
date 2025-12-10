@@ -72,11 +72,11 @@ export function AddGroceryForm() {
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="bg-white w-full max-w-2xl shadow-2xl rounded-3xl border border-green-100 p-8"
+      className="bg-white w-full max-w-2xl shadow-2xl rounded-3xl border border-orange-100 p-8"
     >
       <div className="flex flex-col items-center mb-8">
         <div className="flex items-center gap-2">
-          <PlusCircle className="w-8 h-8 text-green-500" />
+          <PlusCircle className="w-8 h-8 text-orange-500" />
           <h1>Add Your Grocery</h1>
         </div>
         <p className="text-gray-500 text-sm mt-2 text-center">
@@ -98,7 +98,7 @@ export function AddGroceryForm() {
             value={inputData.name}
             onChange={handleInputChange}
             placeholder="Eg: Milk, Chips, Soap, etc."
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-400 transition-all"
           />
         </div>
 
@@ -111,7 +111,7 @@ export function AddGroceryForm() {
               name="category"
               value={inputData.category}
               onChange={handleSelectChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-400 transition-all bg-white"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-400 transition-all bg-white"
             >
               <option value="">Select Category</option>
               {categories.map((category) => (
@@ -130,7 +130,7 @@ export function AddGroceryForm() {
               name="unit"
               value={inputData.unit}
               onChange={handleSelectChange}
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-400 transition-all bg-white"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-400 transition-all bg-white"
             >
               <option value="">Select Unit</option>
               {units.map((unit) => (
@@ -156,14 +156,14 @@ export function AddGroceryForm() {
             value={inputData.price}
             onChange={handleInputChange}
             placeholder="Eg. 100, 200, 300, etc."
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-orange-400 transition-all"
           />
         </div>
 
         <div className="flex flex-col sm:flex-row items-center gap-5">
           <label
             htmlFor="image"
-            className="cursor-pointer flex items-center justify-center gap-2 bg-green-50 text-green-700 font-semibold border border-green-200 rounded-xl px-6 py-2 hover:bg-green-100 transition-all w-full sm:w-auto"
+            className="cursor-pointer flex items-center justify-center gap-2 bg-orange-50 text-orange-700 font-semibold border border-orange-200 rounded-xl px-6 py-2 hover:bg-orange-100 transition-all w-full sm:w-auto"
           >
             <Upload className="w-5 h-5" />
             Upload Image
@@ -190,7 +190,7 @@ export function AddGroceryForm() {
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
           type="submit"
-          className="mt-5 w-full bg-linear-to-r from-green-500 to-green-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl disabled:opacity-60 transition-all flex items-center justify-center gap-2 cursor-pointer"
+          className="mt-5 w-full bg-linear-to-r from-orange-500 to-orange-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl disabled:opacity-60 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           {loading ? (
             <>

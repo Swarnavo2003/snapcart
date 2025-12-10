@@ -70,7 +70,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
       >
         <button
           onClick={() => prevStep(1)}
-          className="flex items-center gap-1 bg-green-700 hover:bg-green-800 text-white transition-colors cursor-pointer border py-1 px-3 rounded-lg"
+          className="flex items-center gap-1 bg-orange-700 hover:bg-orange-800 text-white transition-colors cursor-pointer border py-1 px-3 rounded-lg"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Back</span>
@@ -81,7 +81,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl font-extrabold text-green-700 mb-2"
+        className="text-4xl font-extrabold text-orange-700 mb-2"
       >
         Create Account
       </motion.h1>
@@ -92,7 +92,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
         transition={{ duration: 0.6 }}
         className="text-gray-600 mb-4 flex items-center gap-2"
       >
-        Join Snapcar today <Leaf className="w-5 h-5 text-green-600" />
+        Join Snapcar today <Leaf className="w-5 h-5 text-orange-600" />
       </motion.p>
 
       <motion.form
@@ -110,7 +110,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
             value={inputData.name}
             onChange={handleFormChange}
             placeholder="Enter your name"
-            className="w-full border border-gray-300 rounded-xl py-3 pl-10 pr-4 text-gray-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+            className="w-full border border-gray-300 rounded-xl py-3 pl-10 pr-4 text-gray-800 focus:ring-2 focus:ring-orange-500 focus:outline-none"
           />
         </div>
 
@@ -122,7 +122,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
             value={inputData.email}
             onChange={handleFormChange}
             placeholder="Enter your email"
-            className="w-full border border-gray-300 rounded-xl py-3 pl-10 pr-4 text-gray-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+            className="w-full border border-gray-300 rounded-xl py-3 pl-10 pr-4 text-gray-800 focus:ring-2 focus:ring-orange-500 focus:outline-none"
           />
         </div>
 
@@ -134,7 +134,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
             value={inputData.password}
             onChange={handleFormChange}
             placeholder="Enter your password"
-            className="w-full border border-gray-300 rounded-xl py-3 pl-10 pr-4 text-gray-800 focus:ring-2 focus:ring-green-500 focus:outline-none"
+            className="w-full border border-gray-300 rounded-xl py-3 pl-10 pr-4 text-gray-800 focus:ring-2 focus:ring-orange-500 focus:outline-none"
           />
           {showPassword ? (
             <EyeOff
@@ -161,7 +161,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
               disabled={!formValidation || loading}
               className={`w-full font-semibold py-3 rounded-lg transition-all duration-200 shadow-sm inline-flex items-center justify-center gap-2 ${
                 formValidation
-                  ? "bg-green-600 hover:bg-green-700 text-white cursor-pointer"
+                  ? "bg-orange-600 hover:bg-orange-700 text-white cursor-pointer"
                   : "bg-gray-300 cursor-not-allowed text-gray-700"
               }`}
             >
@@ -196,7 +196,7 @@ export function RegisterForm({ prevStep }: iAppProps) {
         Already have an account? <LogIn className="size-4" />{" "}
         <span
           onClick={() => router.push("/login")}
-          className="text-green-500 cursor-pointer hover:underline hover:text-green-600"
+          className="text-orange-500 cursor-pointer hover:underline hover:text-orange-600"
         >
           Sign In
         </span>
