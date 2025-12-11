@@ -55,6 +55,27 @@ export function CategorySlider() {
   };
 
   useEffect(() => {
+    const autoScroll = setInterval(() => {
+      if (!scrollRef.current) return;
+
+      const { clientWidth, scrollWidth, scrollLeft } = scrollRef.current;
+      if (scrollLeft + clientWidth >= scrollWidth - 5) {
+        scrollRef.current.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+      } else {
+        scrollRef.current.scrollBy({
+          left: 300,
+          behavior: "smooth",
+        });
+      }
+    }, 4000);
+
+    return () => clearInterval(autoScroll);
+  }, []);
+
+  useEffect(() => {
     scrollRef.current?.addEventListener("scroll", checkScroll);
     checkScroll();
     return () => removeEventListener("scroll", checkScroll);
