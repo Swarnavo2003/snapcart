@@ -1,6 +1,6 @@
 "use client";
 import { IGrocery } from "@/models/grocery.model";
-import { PlusCircle, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 
